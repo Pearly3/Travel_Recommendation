@@ -33,7 +33,7 @@ export const ContinentPage = () => {
             <header>
                 <h3>Furyroam</h3>
             </header>
-            <h3>1. Which continent would you like to visit?</h3>
+            <h3> Which continent would you like to visit?</h3>
             <button onClick={() => handleContinentSelect('Europe')}>Europe</button>
       <button onClick={() => handleContinentSelect('Asia')}>Asia</button>
       <button onClick={() => handleContinentSelect('Oceania')}>Oceania</button>

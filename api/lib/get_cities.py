@@ -2,7 +2,9 @@ import json
 import urllib
 import requests
 
-def get_cities(country_id):
+def get_cities(country_id, requests_get=None):
+    if requests_get is None:
+        requests_get = requests.get
     where = urllib.parse.quote_plus(f"""
     {{
         "country": {{
@@ -24,4 +26,7 @@ def get_cities(country_id):
     data = json.loads(requests.get(url, headers=headers).content.decode('utf-8')) # Here you have the data that you need
     cities = [city["name"] for city in data["results"]]
     print(f"""THESE ARE THE CITIES {cities}""")
+    
     return cities
+
+print(f"""TURKEY CITIES {get_cities("r1dBFhG3I7")}""")

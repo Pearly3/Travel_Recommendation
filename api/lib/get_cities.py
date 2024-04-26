@@ -23,4 +23,5 @@ def get_cities(country_id):
 
     data = json.loads(requests.get(url, headers=headers).content.decode('utf-8')) # Here you have the data that you need
     cities = [city["name"] for city in data["results"]]
+    print(f"""THESE ARE THE CITIES {cities}""")
     return cities

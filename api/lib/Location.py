@@ -28,4 +28,4 @@ class Location():
       else:
         pass
 
-    print(self.city_weather)
+    # print(self.city_weather)

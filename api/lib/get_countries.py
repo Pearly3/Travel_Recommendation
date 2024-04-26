@@ -37,7 +37,7 @@ def get_countries(continent):
     countries = {}
     for item in data["results"]:
         countries[item["objectId"]] = item["name"]
-    
+    # print(f"""DICTIONARY of countries {countries}""")
 
     locations_lst = []
 
@@ -45,6 +45,6 @@ def get_countries(continent):
         new_location = Location(country[0], country[1])
         locations_lst.append(new_location)
         new_location.get_weather(50, 0)
-
+    return countries
 
 get_countries("Asia")

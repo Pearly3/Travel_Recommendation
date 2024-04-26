@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
-import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+//import React, { useState } from 'react';
 import { usePreferences } from "../../context/preferences";
 
 
@@ -7,11 +7,13 @@ export const ContinentPage = () => {
     const { preferences, setPreferences } = usePreferences();
   
     const handleContinentSelect = (continent) => {
-      setPreferences({
-        ...preferences,
-        Continent: [...preferences.Continent, continent]
-      });
-    };
+      if (!preferences.Continent.includes(continent)) {
+          setPreferences({
+              ...preferences,
+              Continent: [...preferences.Continent, continent]
+          });
+      }
+  };
         
     const navigate = useNavigate();
         const handleNextpage = () => {

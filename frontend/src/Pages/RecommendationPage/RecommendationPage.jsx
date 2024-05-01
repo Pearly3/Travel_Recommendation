@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getCachedCitiesArray } from "../../Services/BackendService";
+import NoRecommendationsModal from './NoRecommendationsModel';
+
 
 export const RecommendationPage = () => {
     const [loading, setLoading] = useState(true);
@@ -18,6 +20,8 @@ export const RecommendationPage = () => {
         return () => clearInterval(interval); // Cleanup on unmount
     }, []);
 
+ 
+
     return (
         <div className="Continent">
             <h3>YOUR RECOMMENDATIONS</h3>
@@ -33,9 +37,9 @@ export const RecommendationPage = () => {
                     ))}
                 </div>
             )}
-            {!loading && citiesArray === null && (
-                <p>No recommendations available.</p>
-            )}
+            {!loading && (!citiesArray || citiesArray.length === 0) && ( // Check if citiesArray is null or an empty array
+        <NoRecommendationsModal /> 
+      )}
         </div>
     );
 };

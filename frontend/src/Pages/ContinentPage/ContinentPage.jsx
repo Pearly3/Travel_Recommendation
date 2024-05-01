@@ -2,6 +2,7 @@
   import "./ContinentPage.css"
   import { usePreferences } from "../../context/preferences";
   import { useState } from "react";
+  
 
 
   export const ContinentPage = () => {

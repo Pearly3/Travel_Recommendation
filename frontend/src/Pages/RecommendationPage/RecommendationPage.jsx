@@ -25,6 +25,19 @@ export const RecommendationPage = () => {
     return (
         <div className="Continent">
             <h3>YOUR RECOMMENDATIONS</h3>
+            {!citiesArray || citiesArray.length === 0 ? ( // Check if citiesArray is null or an empty array
+                <NoRecommendationsModal />
+            ) : (
+                <div>
+                    {citiesArray.map((continentData, index) => (
+                        <div key={index}>
+                            {Object.keys(continentData).map(city => (
+                                <p key={city}>{city}</p>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

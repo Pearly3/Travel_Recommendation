@@ -11,6 +11,8 @@ import { WeatherPage } from './Pages/WeatherPage/WeatherPage';
 import { RecommendationPage } from './Pages/RecommendationPage/RecommendationPage';
 
 const router = createBrowserRouter([
+  
+  
   {
     path: "/",
     element: <WelcomePage/>,

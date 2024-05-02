@@ -35,8 +35,10 @@ class Location():
         lat = city["lat"]
         long = city["long"]
         
-        # This API returns a list of temperatures and we want an average, the above code uses the statistics msodule to calculate the mean 
+        # This API returns a list of temperatures and we want an average, the above code uses the statistics module to calculate the mean 
         # of these temperatures and then uses floor division by 1 to round it down to whole number
+        # We also grab the lattitude and longitude and save them as variables to be passed back later 
+
         if (minTemp >= temp) or (temp >= maxTemp): # checking if temp is outside our min temp max temp range 
           pass
         else:
@@ -44,9 +46,8 @@ class Location():
           self.city_details[city['name']] = [self.country_name, temp, hotel_link, lat, long] 
 
         # if it's fine we create a dictionary key:value pair in our city_weather param - seen in the init method of this class - that has 
-        # the city name as the key then a list containing the country name and average temperature as its value. 
+        # the city name as the key then a list containing the country name, average temperature, booking.com link, latitude and longitude as its value. 
         # We don't need to return anything from this function. Adding items to the dictionary is all we need to do at the end.  
-        
       else: 
         print(f"error: {response.status_code} {response.reason}, couldn't retrieve weather")
 

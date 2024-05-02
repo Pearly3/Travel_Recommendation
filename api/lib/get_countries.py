@@ -65,11 +65,3 @@ def get_countries(continent, continent_count):
     # Above, we initialise a 'countries' dictionary and assign ID:country_name key, value pairs
     return countries
     
-    # In the above code we iterate through the countries dictionary using .items(). This turns each key:value
-    # pair into a tuple that looks like this (key, value). this means we have easy access to both the object ID 
-    # and the name of the country and we can pass it into the Location Class, using the indexes [0] and [1], when it is initialised. 
-    
-    # The Location class has the logic for retrieving cities built into its __init__() method, here we just need to call 
-    # its get_weather method, passing in the min_temp, max_temp and dates of the holiday. Now locations_lst is filled 
-    # with Location class objects that each represent a country and contain its cities and temps. This is what we 
-    # return at the end. 

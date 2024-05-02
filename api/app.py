@@ -17,15 +17,21 @@ def receive_continents():
     try:
         data = request.get_json()
         continents = data
-        # result = "Continents' list received succesfully"
         continent_count = len(continents)
         country_list = {}
         for continent in continents:
             country_list.update(get_countries(continent, continent_count))
+        
+        # ^ We initialise a country_list and use get countries to store the countries we grab from our continet preference
+
         cities_by_country_dict = {}
         for id, country_name in country_list.items():
             cities = get_cities(id)
             cities_by_country_dict[country_name] = cities
+        
+        # ^ We turn country list into items of (id, country_name) and call get_cities on each of them. This will return a city 
+        # for each country and then we add this to the cities_by_country dict to be returned to the front end
+
         return jsonify(cities_by_country_dict), 201
 
     except Exception as e:
@@ -58,11 +64,12 @@ def receive_preferences():
             else:
                 locations_lst.append(location.city_details)
             
-        print("THIS IS THE LOCATION LST")
+        print("THIS IS THE FINAL LOCATION LST")
         print(locations_lst)
         
         random.shuffle(locations_lst)
-        print(locations_lst)
+        # ^ We shuffle locations_lst to make sure if user does same input a few times, it returns a different order of countries. 
+        
         return jsonify(locations_lst), 201
     
     except Exception as e:

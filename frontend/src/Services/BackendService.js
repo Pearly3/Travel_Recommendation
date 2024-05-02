@@ -5,7 +5,6 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 export const sendTravelPreferences = async (preferences, options = {}) => {
   
   const { signal } = options;
-  console.log("sending signal to backend", preferences);
   const requestOptions = {
     method: "POST",
     headers: {
@@ -27,7 +26,6 @@ export const sendTravelPreferences = async (preferences, options = {}) => {
 
 export const sendContinents = async (continents, options = {}) => {
   const { signal } = options;
-  console.log("sending signal to backend", continents);
   const requestOptions = {
     method: "POST",
     headers: {

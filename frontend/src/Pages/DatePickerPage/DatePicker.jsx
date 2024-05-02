@@ -12,7 +12,7 @@ const [endDate, setEndDate] = useState(new Date());
 
 const formatDate = (dateObj) => {
     
-    console.log(dateObj)
+    
     const months = {
     Jan: '01', Feb: '02', Mar: '03', Apr: '04', May: '05', Jun: '06',
     Jul: '07', Aug: '08', Sep: '09', Oct: '10', Nov: '11', Dec: '12'
@@ -29,7 +29,7 @@ const onChange = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
-    console.log(endDate)
+   
 };
 
 const handleDateSelect = (start, end) => {
@@ -44,7 +44,7 @@ const handleDateSelect = (start, end) => {
             recommendations: []
         });
     }
-    console.log(preferences)
+    
 };
 
 const navigate = useNavigate();
@@ -53,7 +53,7 @@ const handleNextpage = () => {
     let start = formatDate(startDate)
     let end = formatDate(endDate)
     handleDateSelect(start, end)
-    console.log(preferences)
+    
     navigate('/Weather');
 }
 
